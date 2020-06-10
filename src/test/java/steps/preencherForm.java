@@ -18,7 +18,7 @@ public class preencherForm {
 
 	@Before
 	public void conectar() {
-		driver = dm.selectBrowser("chrome");
+		driver = dm.selectBrowser("chrome_U");
 		inicial = new InicialPage(driver);
 		forms = new FormsPage(driver);
 		driver.get("http://demoqa.com/");
