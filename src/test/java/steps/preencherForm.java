@@ -37,14 +37,10 @@ public class preencherForm {
 		forms.txtdateOfBirth().click();
 		forms.selecionarData(13);
 		Thread.sleep(9000);
-		
-		
-
 	}
 
 	@After
 	public void desconectar() {
 		driver.close();
-
 	}
 }
