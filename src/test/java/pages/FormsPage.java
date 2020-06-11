@@ -90,7 +90,7 @@ public class FormsPage {
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Número inválido, digite novamente");
+			System.out.println("Nï¿½mero invï¿½lido, digite novamente");
 		}
 	}
 
