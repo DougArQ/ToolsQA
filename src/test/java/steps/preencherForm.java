@@ -52,8 +52,11 @@ public class preencherForm {
 		
 		forms.listaDias().click();
 
-		forms.txtSubjects().click();
-		forms.txtSubjects().sendKeys("Residente na cidade de Araraquara/Sp");
+//		forms.txtSubjects().click();
+//		forms.txtSubjects().sendKeys("Residente na cidade de Araraquara/Sp");
+		
+		forms.checkSports().click();
+		
 
 	}
 

@@ -54,6 +54,15 @@ public class FormsPage {
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[6]/div[2]/div[1]/div[1]/div[1]")
 	WebElement txtSubjects;
 
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[1]/label[1]")
+	WebElement checkSports;
+
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[2]/label[1]")
+	WebElement checkReading;
+
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[3]/label[1]")
+	WebElement checkMusic;
+
 	public WebElement btnPraticeForms() {
 		return btnPraticeForms;
 	}
@@ -116,8 +125,35 @@ public class FormsPage {
 		dropdown.selectByIndex(dia);
 
 	}
+
 	public WebElement txtSubjects() {
 		return txtSubjects;
 	}
 
-}
+	public WebElement checkSports() {
+		return checkSports;
+	}
+	
+	public WebElement checkReading() {
+		return checkReading;
+	}
+	
+	public WebElement checkMusic() {
+		return checkMusic;
+	}
+	
+//	public void selecionarHobbie(String hobbie) {
+//
+//		if (hobbie == "sports") {
+//			checkSports.click();
+//		} else if (hobbie == "reading") {
+//			checkReading.click();
+//		} else {
+//			checkMusic.click();
+//		}
+	
+
+
+	}
+
+
