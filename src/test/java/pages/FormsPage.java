@@ -51,7 +51,7 @@ public class FormsPage {
 	@FindBy(className = "react-datepicker__year-select")
 	WebElement listaAno;
 
-	@FindBy(id = "subjectsContainer")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[6]/div[2]/div[1]/div[1]/div[1]")
 	WebElement txtSubjects;
 
 	public WebElement btnPraticeForms() {
@@ -90,7 +90,7 @@ public class FormsPage {
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Número inválido, digite novamente");
+			System.out.println("Número Inválido, digite novamente");
 		}
 	}
 
