@@ -51,10 +51,8 @@ public class preencherForm {
 		ano.selectByVisibleText("1981");
 		
 		forms.listaDias().click();
-		
-		forms.preencherSubjects();
-		
-	
+		forms.preencherSubjects("English", "Computer Science", "Maths");
+		forms.selecionarHobbie("reading");
 		
 
 	}

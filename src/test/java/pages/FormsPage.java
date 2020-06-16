@@ -63,6 +63,9 @@ public class FormsPage {
 
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[3]/label[1]")
 	WebElement checkMusic;
+	
+	@FindBy(id = "uploadPicture")
+	WebElement uploadPicture;
 
 	public WebElement btnPraticeForms() {
 		return btnPraticeForms;
@@ -127,10 +130,15 @@ public class FormsPage {
 
 	}
 
-	public void preencherSubjects() {
+	public void preencherSubjects(String texto1, String texto2, String texto3) {
 		txtSubjects.click();
-			    txtSubjects.sendKeys("english");
-		
+			    txtSubjects.sendKeys(texto1);
+			    txtSubjects.sendKeys(Keys.TAB);
+			    txtSubjects.sendKeys(texto2);
+			    txtSubjects.sendKeys(Keys.TAB);
+			    txtSubjects.sendKeys(texto3);
+			    txtSubjects.sendKeys(Keys.TAB);
+			    
 	}
 
 	public WebElement checkSports() {
@@ -154,6 +162,10 @@ public class FormsPage {
 		} else {
 			checkMusic.click();
 		}
+	}
+	
+	public WebElement uploadPicture() {
+		return uploadPicture;
 	}
 	
 }
