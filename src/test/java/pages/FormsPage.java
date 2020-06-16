@@ -52,7 +52,7 @@ public class FormsPage {
 	@FindBy(className = "react-datepicker__year-select")
 	WebElement listaAno;
 
-	@FindBy(id = "subjectsContainer")
+	@FindBy(id = "subjectsInput")
 	WebElement txtSubjects;
 
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[1]/label[1]")
@@ -100,7 +100,7 @@ public class FormsPage {
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Número Inválido, digite novamente");
+			System.out.println("Nï¿½mero Invï¿½lido, digite novamente");
 		}
 	}
 
@@ -129,7 +129,7 @@ public class FormsPage {
 
 	public void preencherSubjects() {
 		txtSubjects.click();
-			    txtSubjects.sendKeys("Teste");
+			    txtSubjects.sendKeys("english");
 		
 	}
 
@@ -154,8 +154,6 @@ public class FormsPage {
 		} else {
 			checkMusic.click();
 		}
-	
-
 	}
 	
 }
