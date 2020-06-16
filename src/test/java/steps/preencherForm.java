@@ -51,11 +51,10 @@ public class preencherForm {
 		ano.selectByVisibleText("1981");
 		
 		forms.listaDias().click();
-
-//		forms.txtSubjects().click();
-//		forms.txtSubjects().sendKeys("Residente na cidade de Araraquara/Sp");
 		
-		forms.checkSports().click();
+		forms.preencherSubjects();
+		
+	
 		
 
 	}

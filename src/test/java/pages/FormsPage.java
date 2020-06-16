@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,7 +52,7 @@ public class FormsPage {
 	@FindBy(className = "react-datepicker__year-select")
 	WebElement listaAno;
 
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[6]/div[2]/div[1]/div[1]/div[1]")
+	@FindBy(id = "subjectsContainer")
 	WebElement txtSubjects;
 
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[1]/label[1]")
@@ -126,8 +127,10 @@ public class FormsPage {
 
 	}
 
-	public WebElement txtSubjects() {
-		return txtSubjects;
+	public void preencherSubjects() {
+		txtSubjects.click();
+			    txtSubjects.sendKeys(Keys.RETURN);
+		
 	}
 
 	public WebElement checkSports() {
@@ -142,18 +145,19 @@ public class FormsPage {
 		return checkMusic;
 	}
 	
-//	public void selecionarHobbie(String hobbie) {
-//
-//		if (hobbie == "sports") {
-//			checkSports.click();
-//		} else if (hobbie == "reading") {
-//			checkReading.click();
-//		} else {
-//			checkMusic.click();
-//		}
+	public void selecionarHobbie(String hobbie) {
+
+		if (hobbie == "sports") {
+			checkSports.click();
+		} else if (hobbie == "reading") {
+			checkReading.click();
+		} else {
+			checkMusic.click();
+		}
 	
 
-
 	}
+	
+}
 
 
