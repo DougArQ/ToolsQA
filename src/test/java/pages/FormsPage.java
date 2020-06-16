@@ -129,7 +129,7 @@ public class FormsPage {
 
 	public void preencherSubjects() {
 		txtSubjects.click();
-			    txtSubjects.sendKeys(Keys.RETURN);
+			    txtSubjects.sendKeys("Teste");
 		
 	}
 
