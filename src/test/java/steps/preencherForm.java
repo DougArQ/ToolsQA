@@ -1,5 +1,7 @@
 package steps;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,10 +51,14 @@ public class preencherForm {
 
 		ano = new Select(forms.listaAno());
 		ano.selectByVisibleText("1981");
-		
+
 		forms.listaDias().click();
 		forms.preencherSubjects("English", "Computer Science", "Maths");
 		forms.selecionarHobbie("reading");
+		forms.txtAddress().sendKeys("Avenida Rodrigo Fernando Grillo, 587");
+		forms.listState().click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		forms.selecionarState("Rajasthan");
 		
 
 	}

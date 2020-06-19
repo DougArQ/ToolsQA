@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class FormsPage {
+
+	private Select lista;
 
 	public FormsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -63,9 +67,15 @@ public class FormsPage {
 
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[7]/div[2]/div[3]/label[1]")
 	WebElement checkMusic;
-	
+
 	@FindBy(id = "uploadPicture")
 	WebElement uploadPicture;
+
+	@FindBy(id = "currentAddress")
+	WebElement txtAddress;
+
+	@FindBy(id = "state")
+	WebElement listState;
 
 	public WebElement btnPraticeForms() {
 		return btnPraticeForms;
@@ -83,7 +93,7 @@ public class FormsPage {
 		return txtuserEmail;
 	}
 
-	public void selecionarSexo(String sexo) {
+	public void selecionarSexo(String sexo) {  //Método para preenchimento do campo Sexo
 
 		if (sexo == "male") {
 			male.click();
@@ -95,7 +105,7 @@ public class FormsPage {
 
 	}
 
-	public void txtuserNumber(String telefone) {
+	public void txtuserNumber(String telefone) {  // Método para preenchimento do campo telefone.
 
 		Integer QtdNumeros = telefone.length();
 		System.out.println(QtdNumeros);
@@ -103,7 +113,7 @@ public class FormsPage {
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Nï¿½mero Invï¿½lido, digite novamente");
+			System.out.println("Quantidade de dígitos diferente de 10");
 		}
 	}
 
@@ -123,37 +133,25 @@ public class FormsPage {
 		return listaAno;
 	}
 
-	public void selecionarData(Integer dia) {
+	public void selecionarData(Integer dia) {  // Método para seleção do DIA
 
 		Select dropdown = new Select(listaDias);
 		dropdown.selectByIndex(dia);
 
 	}
 
-	public void preencherSubjects(String texto1, String texto2, String texto3) {
+	public void preencherSubjects(String texto1, String texto2, String texto3) {  //Metodo para preenchimento do campo Subject
 		txtSubjects.click();
-			    txtSubjects.sendKeys(texto1);
-			    txtSubjects.sendKeys(Keys.TAB);
-			    txtSubjects.sendKeys(texto2);
-			    txtSubjects.sendKeys(Keys.TAB);
-			    txtSubjects.sendKeys(texto3);
-			    txtSubjects.sendKeys(Keys.TAB);
-			    
+		txtSubjects.sendKeys(texto1);
+		txtSubjects.sendKeys(Keys.TAB);
+		txtSubjects.sendKeys(texto2);
+		txtSubjects.sendKeys(Keys.TAB);
+		txtSubjects.sendKeys(texto3);
+		txtSubjects.sendKeys(Keys.TAB);
+
 	}
 
-	public WebElement checkSports() {
-		return checkSports;
-	}
-	
-	public WebElement checkReading() {
-		return checkReading;
-	}
-	
-	public WebElement checkMusic() {
-		return checkMusic;
-	}
-	
-	public void selecionarHobbie(String hobbie) {
+	public void selecionarHobbie(String hobbie) {  // Metodo para selecionar o checkbox Hobbie
 
 		if (hobbie == "sports") {
 			checkSports.click();
@@ -163,11 +161,31 @@ public class FormsPage {
 			checkMusic.click();
 		}
 	}
-	
+
 	public WebElement uploadPicture() {
 		return uploadPicture;
 	}
-	
+
+	public WebElement txtAddress() {
+		return txtAddress;
+	}
+
+	public WebElement listState() {
+		return listState;
+	}
+
+	public void selecionarState(String state) {  //Metodo para selecionar um Estado dentro da lista  (NÃO FUNCIONANDO)
+
+		lista = new Select(listState);
+
+		if (state == "NCR") {
+			lista.selectByVisibleText("NCR");
+		} else if (state == "Uttar Pradesh") {
+			lista.selectByVisibleText("Uttar Pradesh");
+		} else if (state == "Rajasthan") {
+			lista.selectByVisibleText("Rajasthan");
+		}
+
+	}
+
 }
-
-
