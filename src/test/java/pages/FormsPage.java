@@ -74,8 +74,15 @@ public class FormsPage {
 	@FindBy(id = "currentAddress")
 	WebElement txtAddress;
 
-	@FindBy(id = "state")
+	@FindBy(className = "css-1wa3eu0-placeholder")
 	WebElement listState;
+
+	@FindBy(id = "react-select-3-input")
+	WebElement prencheListaState;
+
+	public WebElement prencheListaState() {
+		return prencheListaState;
+	}
 
 	public WebElement btnPraticeForms() {
 		return btnPraticeForms;
@@ -93,7 +100,7 @@ public class FormsPage {
 		return txtuserEmail;
 	}
 
-	public void selecionarSexo(String sexo) {  //Método para preenchimento do campo Sexo
+	public void selecionarSexo(String sexo) {  //Mï¿½todo para preenchimento do campo Sexo
 
 		if (sexo == "male") {
 			male.click();
@@ -105,7 +112,7 @@ public class FormsPage {
 
 	}
 
-	public void txtuserNumber(String telefone) {  // Método para preenchimento do campo telefone.
+	public void txtuserNumber(String telefone) {  // Mï¿½todo para preenchimento do campo telefone.
 
 		Integer QtdNumeros = telefone.length();
 		System.out.println(QtdNumeros);
@@ -113,7 +120,7 @@ public class FormsPage {
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Quantidade de dígitos diferente de 10");
+			System.out.println("Quantidade de dï¿½gitos diferente de 10");
 		}
 	}
 
@@ -133,7 +140,7 @@ public class FormsPage {
 		return listaAno;
 	}
 
-	public void selecionarData(Integer dia) {  // Método para seleção do DIA
+	public void selecionarData(Integer dia) {  // Mï¿½todo para seleï¿½ï¿½o do DIA
 
 		Select dropdown = new Select(listaDias);
 		dropdown.selectByIndex(dia);
@@ -174,18 +181,18 @@ public class FormsPage {
 		return listState;
 	}
 
-	public void selecionarState(String state) {  //Metodo para selecionar um Estado dentro da lista  (NÃO FUNCIONANDO)
-
-		lista = new Select(listState);
+	public void preencherState(String state) {  //Metodo para selecionar um Estado dentro da lista  (Nï¿½O FUNCIONANDO)
 
 		if (state == "NCR") {
-			lista.selectByVisibleText("NCR");
+			prencheListaState().sendKeys("NCR");
+			prencheListaState().sendKeys(Keys.TAB);
 		} else if (state == "Uttar Pradesh") {
-			lista.selectByVisibleText("Uttar Pradesh");
+			prencheListaState().sendKeys("Uttar Pradesh");
+			prencheListaState().sendKeys(Keys.TAB);
 		} else if (state == "Rajasthan") {
-			lista.selectByVisibleText("Rajasthan");
+			prencheListaState().sendKeys("Rajasthan");
+			prencheListaState().sendKeys(Keys.TAB);
 		}
-
 	}
 
 }

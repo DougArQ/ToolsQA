@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import managers.DriverManager;
@@ -31,6 +32,7 @@ public class preencherForm {
 		inicial = new InicialPage(driver);
 		forms = new FormsPage(driver);
 		driver.get("http://demoqa.com/");
+		driver.manage().window().maximize();
 	}
 
 	@Test
@@ -58,8 +60,7 @@ public class preencherForm {
 		forms.txtAddress().sendKeys("Avenida Rodrigo Fernando Grillo, 587");
 		forms.listState().click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		forms.selecionarState("Rajasthan");
-		
+		forms.preencherState("Rajasthan");
 
 	}
 
