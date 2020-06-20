@@ -1,7 +1,5 @@
 package pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,13 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FormsPage {
 
-	private Select lista;
-
 	public FormsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-
-	WebDriver driver;
 
 	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/span[1]")
 	WebElement btnPraticeForms;
@@ -109,7 +103,6 @@ public class FormsPage {
 		} else {
 			other.click();
 		}
-
 	}
 
 	public void txtuserNumber(String telefone) {  // M�todo para preenchimento do campo telefone.
