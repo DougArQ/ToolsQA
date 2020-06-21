@@ -78,7 +78,7 @@ public class FormsPage {
 	@FindBy(id = "react-select-3-input")
 	WebElement prencheListaState;
 	
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[10]/div[3]/div[1]/div[1]/div[1]/div[1]")
+	@FindBy(className = "css-yk16xz-control")
 	WebElement listCity;
 
 	@FindBy(id = "react-select-4-input")
@@ -221,8 +221,8 @@ public class FormsPage {
 	
 	public void preencherCity(String city) {  //Metodo para selecionar uma cidade dentro da lista 
 
-			listCity().click();
-			
+		listCity().click();		
+		
 		if (city == "Agra") {
 			prencheListaCity().sendKeys("Agra");
 			prencheListaCity().sendKeys(Keys.TAB);

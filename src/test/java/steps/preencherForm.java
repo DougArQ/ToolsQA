@@ -61,10 +61,9 @@ public class preencherForm {
 		forms.preencherSubjects("English", "Computer Science", "Maths");
 		forms.selecionarHobbie("reading");
 		forms.txtAddress().sendKeys("Avenida Rodrigo Fernando Grillo, 587");
-		jse.executeScript("scrollBy(0,250)", "");
+		jse.executeScript("scrollBy(0,250)", ""); //Scroll na tela para coseguir visualizar os campos estado e cidade.
+		
 		forms.preencherState("Uttar Pradesh");
-		Thread.sleep(8000);
-		forms.listCity().click();
 		forms.preencherCity("Merrut");
 		forms.btnSubmit().click();
 		Assert.assertEquals("Thanks for submitting the form", forms.validaMsg());
