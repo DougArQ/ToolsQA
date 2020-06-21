@@ -62,11 +62,12 @@ public class preencherForm {
 		forms.selecionarHobbie("reading");
 		forms.txtAddress().sendKeys("Avenida Rodrigo Fernando Grillo, 587");
 		jse.executeScript("scrollBy(0,250)", ""); //Scroll na tela para coseguir visualizar os campos estado e cidade.
-		
-		forms.preencherState("Uttar Pradesh");
-		forms.preencherCity("Merrut");
+		forms.preencherStateCity("Uttar Pradesh", "Merrut");
+//		forms.preencherState("Uttar Pradesh");
+//		forms.preencherCity("Merrut");
 		forms.btnSubmit().click();
 		Assert.assertEquals("Thanks for submitting the form", forms.validaMsg());
+		Thread.sleep(2000);
 		forms.btnClose().click();
 	}
 

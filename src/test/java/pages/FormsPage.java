@@ -77,27 +77,26 @@ public class FormsPage {
 
 	@FindBy(id = "react-select-3-input")
 	WebElement prencheListaState;
-	
+
 	@FindBy(className = "css-yk16xz-control")
 	WebElement listCity;
 
 	@FindBy(id = "react-select-4-input")
 	WebElement prencheListaCity;
-	
+
 	@FindBy(id = "submit")
 	WebElement btnSubmit;
-	
+
 	@FindBy(id = "example-modal-sizes-title-lg")
 	WebElement msgSucesso;
-	
+
 	@FindBy(id = "closeLargeModal")
 	WebElement btnClose;
-
 
 	public WebElement prencheListaState() {
 		return prencheListaState;
 	}
-	
+
 	public WebElement prencheListaCity() {
 		return prencheListaCity;
 	}
@@ -118,7 +117,7 @@ public class FormsPage {
 		return txtuserEmail;
 	}
 
-	public void selecionarSexo(String sexo) {  //M�todo para preenchimento do campo Sexo
+	public void selecionarSexo(String sexo) { // M�todo para preenchimento do campo Sexo
 
 		if (sexo == "male") {
 			male.click();
@@ -129,10 +128,9 @@ public class FormsPage {
 		}
 	}
 
-	public void txtuserNumber(String telefone) {  // M�todo para preenchimento do campo telefone.
+	public void txtuserNumber(String telefone) { // M�todo para preenchimento do campo telefone.
 
 		Integer QtdNumeros = telefone.length();
-		
 
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
@@ -157,14 +155,15 @@ public class FormsPage {
 		return listaAno;
 	}
 
-	public void selecionarData(Integer dia) {  // M�todo para sele��o do DIA
+	public void selecionarData(Integer dia) { // M�todo para sele��o do DIA
 
 		Select dropdown = new Select(listaDias);
 		dropdown.selectByIndex(dia);
 
 	}
 
-	public void preencherSubjects(String texto1, String texto2, String texto3) {  //Metodo para preenchimento do campo Subject
+	public void preencherSubjects(String texto1, String texto2, String texto3) { // Metodo para preenchimento do campo
+																					// Subject
 		txtSubjects.click();
 		txtSubjects.sendKeys(texto1);
 		txtSubjects.sendKeys(Keys.TAB);
@@ -175,7 +174,7 @@ public class FormsPage {
 
 	}
 
-	public void selecionarHobbie(String hobbie) {  // Metodo para selecionar o checkbox Hobbie
+	public void selecionarHobbie(String hobbie) { // Metodo para selecionar o checkbox Hobbie
 
 		if (hobbie == "sports") {
 			checkSports.click();
@@ -198,62 +197,87 @@ public class FormsPage {
 		return listState;
 	}
 
-	public void preencherState(String state) {  //Metodo para selecionar um Estado dentro da lista 
-		
-		listState().click();
-		
-		if (state == "NCR") {
-			prencheListaState().sendKeys("NCR");
-			prencheListaState().sendKeys(Keys.TAB);
-		} else if (state == "Uttar Pradesh") {
-			prencheListaState().sendKeys("Uttar Pradesh");
-			prencheListaState().sendKeys(Keys.TAB);
-			prencheListaState().sendKeys(Keys.TAB);
-		} else if (state == "Rajasthan") {
-			prencheListaState().sendKeys("Rajasthan");
-			prencheListaState().sendKeys(Keys.TAB);
-		}
-	}
-	
-	public WebElement listCity() {
-		return listCity;
-	}
-	
-	public void preencherCity(String city) {  //Metodo para selecionar uma cidade dentro da lista 
+	public void preencherStateCity(String state, String city) { // Metodo para selecionar um Estado e uma cidade dentro da lista
 
-		listCity().click();		
-		
-		if (city == "Agra") {
-			prencheListaCity().sendKeys("Agra");
-			prencheListaCity().sendKeys(Keys.TAB);
-		} else if (city == "Lucknow") {
-			prencheListaCity().sendKeys("Lucknow");
-			prencheListaCity().sendKeys(Keys.TAB);
-		} else if (city == "Merrut") {
-			prencheListaCity().sendKeys("Merrut");
-			prencheListaCity().sendKeys(Keys.TAB);
+		listState().click();
+
+		if (state == "NCR") {
+			prencheListaState().sendKeys(state);
+			prencheListaState().sendKeys(Keys.TAB);
+			listCity.click();
+			prencheListaCity().sendKeys(city);
+		} else if (state == "Uttar Pradesh") {
+			prencheListaState().sendKeys(state);
+			prencheListaState().sendKeys(Keys.TAB);
+			listCity.click();
+			prencheListaCity().sendKeys(city);
+		} else if (state == "Rajasthan") {
+			prencheListaState().sendKeys(state);
+			prencheListaState().sendKeys(Keys.TAB);
+			listCity.click();
+			prencheListaCity().sendKeys(city);
 		}
 	}
-	
+
+//	public void preencherState(String state) {  //Metodo para selecionar um Estado dentro da lista 
+//		
+//		listState().click();
+//		
+//		if (state == "NCR") {
+//			prencheListaState().sendKeys("NCR");
+//			prencheListaState().sendKeys(Keys.TAB);
+//		} else if (state == "Uttar Pradesh") {
+//			prencheListaState().sendKeys("Uttar Pradesh");
+//			prencheListaState().sendKeys(Keys.TAB);
+//			prencheListaState().sendKeys(Keys.TAB);
+//		} else if (state == "Rajasthan") {
+//			prencheListaState().sendKeys("Rajasthan");
+//			prencheListaState().sendKeys(Keys.TAB);
+//		}
+//	}
+//	
+//	
+//	
+//	
+//	public WebElement listCity() {
+//		return listCity;
+//	}
+//	
+//	public void preencherCity(String city) {  //Metodo para selecionar uma cidade dentro da lista 
+//
+//		listCity().click();		
+//		
+//		
+//		if (city == "Agra") {
+//			prencheListaCity().sendKeys("Agra");
+//			prencheListaCity().sendKeys(Keys.TAB);
+//		} else if (city == "Lucknow") {
+//			prencheListaCity().sendKeys("Lucknow");
+//			prencheListaCity().sendKeys(Keys.TAB);
+//		} else if (city == "Merrut") {
+//			prencheListaCity().sendKeys("Merrut");
+//			prencheListaCity().sendKeys(Keys.TAB);
+//		}
+//	}
+
 	public WebElement btnSubmit() {
 		return btnSubmit;
 	}
-	
+
 	public WebElement msgSucesso() {
 		return msgSucesso;
 	}
-	
+
 	public String validaMsg() {
 		String mensagem = msgSucesso().getText();
-			
+
 		return mensagem;
 	}
-	
+
 	public WebElement btnClose() {
 		return btnClose;
 	}
-	
-	
+
 //    /**
 //     * Encontrar um elemento na tela
 //     */
@@ -282,7 +306,5 @@ public class FormsPage {
 //            }
 //        }
 //    }
-    
-    
 
 }
