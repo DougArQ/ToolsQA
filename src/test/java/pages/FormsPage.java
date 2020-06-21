@@ -1,11 +1,15 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import com.sun.org.apache.xml.internal.serializer.utils.MsgKey;
 
 public class FormsPage {
 
@@ -68,14 +72,34 @@ public class FormsPage {
 	@FindBy(id = "currentAddress")
 	WebElement txtAddress;
 
-	@FindBy(className = "css-1wa3eu0-placeholder")
+	@FindBy(id = "state")
 	WebElement listState;
 
 	@FindBy(id = "react-select-3-input")
 	WebElement prencheListaState;
+	
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[10]/div[3]/div[1]/div[1]/div[1]/div[1]")
+	WebElement listCity;
+
+	@FindBy(id = "react-select-4-input")
+	WebElement prencheListaCity;
+	
+	@FindBy(id = "submit")
+	WebElement btnSubmit;
+	
+	@FindBy(id = "example-modal-sizes-title-lg")
+	WebElement msgSucesso;
+	
+	@FindBy(id = "closeLargeModal")
+	WebElement btnClose;
+
 
 	public WebElement prencheListaState() {
 		return prencheListaState;
+	}
+	
+	public WebElement prencheListaCity() {
+		return prencheListaCity;
 	}
 
 	public WebElement btnPraticeForms() {
@@ -108,12 +132,12 @@ public class FormsPage {
 	public void txtuserNumber(String telefone) {  // M�todo para preenchimento do campo telefone.
 
 		Integer QtdNumeros = telefone.length();
-		System.out.println(QtdNumeros);
+		
 
 		if (QtdNumeros == 10) {
 			txtuserNumber.sendKeys(telefone);
 		} else if (QtdNumeros != 10) {
-			System.out.println("Quantidade de d�gitos diferente de 10");
+			System.out.println("Quantidade de digitos diferente de 10");
 		}
 	}
 
@@ -174,18 +198,91 @@ public class FormsPage {
 		return listState;
 	}
 
-	public void preencherState(String state) {  //Metodo para selecionar um Estado dentro da lista  (N�O FUNCIONANDO)
-
+	public void preencherState(String state) {  //Metodo para selecionar um Estado dentro da lista 
+		
+		listState().click();
+		
 		if (state == "NCR") {
 			prencheListaState().sendKeys("NCR");
 			prencheListaState().sendKeys(Keys.TAB);
 		} else if (state == "Uttar Pradesh") {
 			prencheListaState().sendKeys("Uttar Pradesh");
 			prencheListaState().sendKeys(Keys.TAB);
+			prencheListaState().sendKeys(Keys.TAB);
 		} else if (state == "Rajasthan") {
 			prencheListaState().sendKeys("Rajasthan");
 			prencheListaState().sendKeys(Keys.TAB);
 		}
 	}
+	
+	public WebElement listCity() {
+		return listCity;
+	}
+	
+	public void preencherCity(String city) {  //Metodo para selecionar uma cidade dentro da lista 
+
+			listCity().click();
+			
+		if (city == "Agra") {
+			prencheListaCity().sendKeys("Agra");
+			prencheListaCity().sendKeys(Keys.TAB);
+		} else if (city == "Lucknow") {
+			prencheListaCity().sendKeys("Lucknow");
+			prencheListaCity().sendKeys(Keys.TAB);
+		} else if (city == "Merrut") {
+			prencheListaCity().sendKeys("Merrut");
+			prencheListaCity().sendKeys(Keys.TAB);
+		}
+	}
+	
+	public WebElement btnSubmit() {
+		return btnSubmit;
+	}
+	
+	public WebElement msgSucesso() {
+		return msgSucesso;
+	}
+	
+	public String validaMsg() {
+		String mensagem = msgSucesso().getText();
+			
+		return mensagem;
+	}
+	
+	public WebElement btnClose() {
+		return btnClose;
+	}
+	
+	
+//    /**
+//     * Encontrar um elemento na tela
+//     */
+//    public boolean aguardaElemento(WebElement objeto, WebDriver driver) {
+//        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        try {
+//            wait.until(ExpectedConditions.visibilityOf(objeto));
+//            System.out.println("Elemento: " + objeto + " encontrado! =) ");
+//            Thread.sleep(1000);
+//            return true;
+//        } catch (Exception e) {
+//            System.out.println("Elemento: " + objeto + " não encontrado! =( ");
+//            return false;
+//        }
+//    }
+//    
+//    
+//    public void econtraElementoNaTela(WebElement objeto, WebDriver driver) throws InterruptedException {
+//        boolean iconeVisivel = true;
+//        while (iconeVisivel) {
+//            if (aguardaElemento(objeto)) {
+//                clicarElemento(objeto);
+//                iconeVisivel = false;
+//            } else {
+//                scrollTela("up", 1);
+//            }
+//        }
+//    }
+    
+    
 
 }

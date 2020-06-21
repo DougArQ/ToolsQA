@@ -1,8 +1,13 @@
 package steps;
 
 import managers.DriverManager;
+
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import pages.FormsPage;
@@ -28,10 +33,13 @@ public class preencherForm {
 		forms = new FormsPage(driver);
 		driver.get("http://demoqa.com/");
 		driver.manage().window().maximize();
+		
 	}
 
 	@Test
 	public void preencherForms() throws InterruptedException {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		
 		inicial.btnForms().click();
 		Thread.sleep(3000);
 		forms.btnPraticeForms().click();
@@ -53,10 +61,14 @@ public class preencherForm {
 		forms.preencherSubjects("English", "Computer Science", "Maths");
 		forms.selecionarHobbie("reading");
 		forms.txtAddress().sendKeys("Avenida Rodrigo Fernando Grillo, 587");
-		forms.listState().click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		forms.preencherState("Rajasthan");
-
+		jse.executeScript("scrollBy(0,250)", "");
+		forms.preencherState("Uttar Pradesh");
+		Thread.sleep(8000);
+		forms.listCity().click();
+		forms.preencherCity("Merrut");
+		forms.btnSubmit().click();
+		Assert.assertEquals("Thanks for submitting the form", forms.validaMsg());
+		forms.btnClose().click();
 	}
 
 //	@After
