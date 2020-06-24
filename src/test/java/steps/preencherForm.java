@@ -1,19 +1,19 @@
 package steps;
 
-import managers.DriverManager;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
+import org.junit.rules.TestName;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import managers.DriverManager;
 import pages.FormsPage;
 import pages.InicialPage;
+import suporte.Generator;
+import suporte.Screenshot;
 
-import java.util.concurrent.TimeUnit;
 
 public class preencherForm {
 
@@ -21,6 +21,7 @@ public class preencherForm {
 	DriverManager dm = new DriverManager();
 	InicialPage inicial;
 	FormsPage forms;
+	public TestName test = new TestName();
 
 	private Select mes;
 	private Select ano;
@@ -67,6 +68,11 @@ public class preencherForm {
 //		forms.preencherCity("Merrut");
 		forms.btnSubmit().click();
 		Assert.assertEquals("Thanks for submitting the form", forms.validaMsg());
+		
+		   //Salvando Screenshot
+        String screenshotArquivo = "C:\\Users\\dougl\\OneDrive\\CursoDXC\\ToolsQA\\Screenshots\\" + Generator.dataHoraParaArquivo()+ "_"+test.getMethodName()+".png";
+        Screenshot.tirarPrint(driver, screenshotArquivo);
+        
 		Thread.sleep(2000);
 		forms.btnClose().click();
 	}
